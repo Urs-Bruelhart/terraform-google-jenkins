@@ -308,6 +308,10 @@ fix_jenkins_webapp() {
   restart_jenkins
 }
 
+add_git_symlink() {
+  ln -s /opt/bitnami/git/bin/git /usr/bin/git
+}
+
 echo "Configuring Jenkins"
 
 enable_jenkins_cli
@@ -327,6 +331,7 @@ fix_jenkins_webapp
 
 uninstall_ssh_key
 disable_jenkins_cli
+add_git_symlink
 
 touch_setup_complete_file
 
